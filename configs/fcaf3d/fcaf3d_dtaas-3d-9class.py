@@ -3,13 +3,13 @@ n_points = 100000
 
 model = dict(
     neck_with_head=dict(
-        n_classes=10,
+        n_classes=9,
         n_reg_outs=8))
 
 dataset_type = 'DTAASDataset'
 data_root = 'data/dtaas/'
-class_names = ('bed', 'table', 'sofa', 'chair', 'toilet', 'desk', 'dresser',
-               'night_stand', 'bookshelf', 'bathtub')
+class_names = ('bed', 'table', 'sofa', 'chair', 'desk', 'lighting',
+            'tv', 'storage_closet', 'computer')
 train_pipeline = [
     dict(
         type='LoadPointsFromFile',
@@ -66,7 +66,7 @@ test_pipeline = [
         ])
 ]
 data = dict(
-    samples_per_gpu=8,
+    samples_per_gpu=1,
     workers_per_gpu=4,
     train=dict(
         type='RepeatDataset',

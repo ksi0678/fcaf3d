@@ -24,7 +24,7 @@ def main(dir_root):
             npPoints = np.array(points)
             print(npPoints.shape)
             floatPoint = npPoints[:, 0:3].astype(float)
-            intPoint = npPoints[:, 3:6].astype(np.uint8)
+            intPoint = npPoints[:, 3:6].astype(int)
             binPoint = np.concatenate((floatPoint, intPoint), axis=1)
 
             savemat(f"{depth_path}/{idx+1:06d}.mat", {'instance': binPoint})
