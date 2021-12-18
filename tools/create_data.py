@@ -160,6 +160,19 @@ def sunrgbd_data_prep(root_path, info_prefix, out_dir, workers):
         root_path, info_prefix, out_dir, workers=workers)
 
 
+def dtaas_data_prep(root_path, info_prefix, out_dir, workers):
+    """Prepare the info file for dtaas dataset.
+
+    Args:
+        root_path (str): Path of dataset root.
+        info_prefix (str): The prefix of info filenames.
+        out_dir (str): Output directory of the generated info file.
+        workers (int): Number of threads to be used.
+    """
+    indoor.create_indoor_info_file(
+        root_path, info_prefix, out_dir, workers=workers)
+
+
 def waymo_data_prep(root_path,
                     info_prefix,
                     version,
@@ -306,6 +319,12 @@ if __name__ == '__main__':
             workers=args.workers)
     elif args.dataset == 'sunrgbd':
         sunrgbd_data_prep(
+            root_path=args.root_path,
+            info_prefix=args.extra_tag,
+            out_dir=args.out_dir,
+            workers=args.workers)
+    elif args.dataset == 'dtaas':
+        dtaas_data_prep(
             root_path=args.root_path,
             info_prefix=args.extra_tag,
             out_dir=args.out_dir,
