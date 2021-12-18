@@ -31,8 +31,20 @@ dtaas
 │   ├── create_points.py
 ├── DTAAS
 │   ├── S_01_0008_1_I_40
+│   │   ├── bbox
+│   │   │   ├── Lighting_01.pts
+│   │   │   ├── Lighting_02.pts
+│   │   │   ├── ...
+│   │   ├── S_01_0008_1_I_40.pts
 │   ├── S_01_0008_1_I_41
+│   │   ├── bbox
+│   │   │   ├── Storage closet_01.pts
+│   │   │   ├── Storage closet_02.pts
+│   │   ├── S_01_0008_1_I_41.pts
 │   ├── S_01_0008_1_I_42
+│   │   ├── bbox
+│   │   │   ├── Storage closet_01.pts
+│   │   ├── S_01_0008_1_I_42.pts
 │   ├── ...
 ├── dtaas_trainval
 │   ├── depth
