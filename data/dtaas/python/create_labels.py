@@ -40,20 +40,21 @@ def main(dir_root):
                         break;
                     points.append(list(map(float, line.strip().split(" "))))
                 npPoints = np.array(points)
+                print(bbox_name, npPoints)
                 cx, cy, cz = np.round((npPoints[0] + npPoints[1]) / 2, 6)
                 w, l, h = np.round(npPoints[1] - npPoints[0], 6)
-                cat_name = label2cat[bbox_dir_name.split("_")[0]]
+                cat_name = label2cat[bbox_dir_name.split(".")[0].split("_")[0]]
                 label.append(cat_name)
                 label.extend([cx, cy, cz])
                 label.extend([w, l, h])
                 label.extend([0.0, 0.0]) # Orientation
             
             labels.append(label)
-   
-        print(labels) 
+    
         with open(f"{label_path}/{idx+1:06d}.txt", "w") as fw:
              for l in labels:
                 fw.write("%s\n" % " ".join(map(str, l)))
+                print("%s\n" % " ".join(map(str, l)))
 
 if __name__ == '__main__':
     dir_root = 'data/dtaas/DTAAS'
